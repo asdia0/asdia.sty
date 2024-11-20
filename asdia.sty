@@ -1,0 +1,307 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Asdia}
+
+\usepackage{mdframed}
+\usepackage{chngcntr}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage{thmtools}
+\usepackage{mathtools}
+\usepackage[svgnames,dvipsnames,table]{xcolor}
+\usepackage{adjustbox}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\usepackage[colorlinks=true,pdfusetitle]{hyperref}
+\usepackage{tasks}[newest]
+\usepackage{etoolbox}
+\usepackage{systeme}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{dsfont}
+\usepackage[table]{xcolor}
+\usepackage{xparse}
+
+\hypersetup{urlcolor=RubineRed,linkcolor=RoyalBlue,citecolor=ForestGreen}
+
+\AfterTOCHead{\pagestyle{plain}}
+
+\settasks{
+  label = (\Alph*),
+  label-width = 2em,
+}
+
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+\def\datetwo{\leavevmode\hbox{\the\year\twodigits\month\twodigits\day}}
+
+% TIKZ AND PGFPLOTS CUSTOM STYLES
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{polar, fillbetween}
+
+\usetikzlibrary{arrows, intersections, angles, quotes, calc, decorations.markings, patterns}
+
+\colorlet{plotRed}{red!50}
+\colorlet{plotBlue}{blue!50}
+\colorlet{plotGreen}{green}
+\colorlet{plotBlack}{black!50}
+
+% Line with arrow midway
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+
+% Two marks
+\def\MarkLt{4pt}
+\def\MarkSep{2pt}
+\tikzset{
+  TwoMarks/.style={
+    postaction={decorate,
+      decoration={
+        markings,
+        mark=at position #1 with
+          {
+              \begin{scope}[xslant=0.2]
+              \draw[line width=\MarkSep,white,-] (0pt,-\MarkLt) -- (0pt,\MarkLt) ;
+              \draw[-] (-0.5*\MarkSep,-\MarkLt) -- (-0.5*\MarkSep,\MarkLt) ;
+              \draw[-] (0.5*\MarkSep,-\MarkLt) -- (0.5*\MarkSep,\MarkLt) ;
+              \end{scope}
+          }
+        }
+    }
+  },
+  TwoMarks/.default={0.5},
+}
+
+% ENVIRONMENTS
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{lemma*}{Lemma}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem*{definition*}{Definition}
+
+\NewDocumentCommand{\case}{g o}{\textit{Case #1}\IfNoValueTF{#2}{.}{: \textit{#2}.}}
+\NewDocumentCommand{\subcase}{g o}{\textit{Subcase #1}\IfNoValueTF{#2}{.}{: \textit{#2}.}}
+
+% LINEAR ALGEBRA
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\matr}[1]{\bm{#1}}
+\newcommand*{\cvecii}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand*{\cveciii}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
+\def\dotp{\cdot}
+\def\crossp{\times}
+
+% GEOMETRY
+\renewcommand{\deg}{^{\circ}}
+
+% NUMBER THEORY
+\newcommand{\legendre}[2]{\bp{\frac{#1}{#2}}}
+\NewDocumentCommand{\tr}{g}{\IfNoValueTF{#1}{\operatorname{tr}}{\,{\operatorname{tr}}{\bp{#1}}}}
+
+\let\olddet\det
+\RenewDocumentCommand{\det}{g}{\IfNoValueTF{#1}{\olddet}{\,{\olddet}{\bp{#1}}}}
+
+% COMBINATORICS
+\newcommand\perm[2]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+
+% COMPLEX NUMBERS
+\def\conj{^\ast}
+\RenewDocumentCommand{\Re}{g}{\IfNoValueTF{#1}{\operatorname{Re}}{\operatorname{Re}\of{#1}}}
+\RenewDocumentCommand{\Im}{g}{\IfNoValueTF{#1}{\operatorname{Im}}{\operatorname{Im}\of{#1}}}
+
+% STANDARD OPERATORS
+\DeclareMathOperator{\oldlcm}{lcm}
+\NewDocumentCommand{\lcm}{g}{\IfNoValueTF{#1}{\oldlcm}{{\oldlcm}{\bp{#1}}}}
+
+\let\oldgcd\gcd
+\RenewDocumentCommand{\gcd}{g}{\IfNoValueTF{#1}{\oldgcd}{{\oldgcd}{\bp{#1}}}}
+
+\let\oldsin\sin
+\RenewDocumentCommand{\sin}{o g}{\IfNoValueTF{#2}{\oldsin}{\,{\oldsin\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
+\let\oldcos\cos
+\RenewDocumentCommand{\cos}{o g}{\IfNoValueTF{#2}{\oldcos}{\,{\oldcos\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
+\let\oldtan\tan
+\RenewDocumentCommand{\tan}{o g}{\IfNoValueTF{#2}{\oldtan}{\,{\oldtan\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
+\let\oldcsc\csc
+\RenewDocumentCommand{\csc}{o g}{\IfNoValueTF{#2}{\oldcsc}{\,{\oldcsc\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
+\let\oldsec\sec
+\RenewDocumentCommand{\sec}{o g}{\IfNoValueTF{#2}{\oldsec}{\,{\oldsec\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
+\let\oldcot\cot
+\RenewDocumentCommand{\cot}{o g}{\IfNoValueTF{#2}{\oldcot}{\,{\oldcot\IfValueT{#1}{^{#1}}}{\of{#2}}}}
+
+\let\oldarcsin\arcsin
+\RenewDocumentCommand{\arcsin}{o g}{\IfNoValueTF{#2}{\oldarcsin}{\,{\oldarcsin\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
+\let\oldarccos\arccos
+\RenewDocumentCommand{\arccos}{o g}{\IfNoValueTF{#2}{\oldarccos}{\,{\oldarccos\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
+\let\oldarctan\arctan
+\RenewDocumentCommand{\arctan}{o g}{\IfNoValueTF{#2}{\oldarctan}{\,{\oldarctan\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
+\let\oldln\ln
+\RenewDocumentCommand{\ln}{g}{\IfNoValueTF{#1}{\oldln}{\,{\oldln}{\bp{#1}}}}
+
+\let\oldexp\exp
+\RenewDocumentCommand{\exp}{g}{\IfNoValueTF{#1}{\oldexp}{\,{\oldexp}{\bp{#1}}}}
+
+\let\oldarg\arg
+\RenewDocumentCommand{\arg}{g}{\IfNoValueTF{#1}{\oldarg}{\,{\oldarg}{\bp{#1}}}}
+
+\NewDocumentCommand{\ind}{g}{\IfNoValueTF{#1}{\operatorname{\mathbb{1}}}{\,\mathbb{1}_{#1}}}
+
+% STATISTICS
+\NewDocumentCommand{\Var}{o g}{\IfNoValueTF{#2}{\operatorname{Var}\IfValueT{#1}{_{#1}}}{\,{\operatorname{Var}\IfValueT{#1}{_{#1}}}{\bp{#2}}}}
+\NewDocumentCommand{\E}{o g}{\IfNoValueTF{#2}{\operatorname{\mathrm{E}}\IfValueT{#1}{_{#1}}}{{\operatorname{\mathrm{E}}\IfValueT{#1}{_{#1}}}{\bp{#2}}}}
+\RenewDocumentCommand{\P}{o g g}{\IfNoValueTF{#2}{\operatorname{\mathrm{P}}\IfValueT{#1}{_{#1}}}{{\operatorname{\mathrm{P}}\IfValueT{#1}{_{#1}}}{\bp{#2\IfValueT{#3}{\mid #3}}}}}
+\NewDocumentCommand{\Binom}{g g}{\mathrm{B}(#1, #2)}
+
+% REAL ANALYSIS
+\let\oldmax\max
+\RenewDocumentCommand{\max}{o g}{\IfNoValueTF{#2}{\oldmax\IfValueT{#1}{_{#1}}}{\,{\oldmax\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+\let\oldsup\sup
+\RenewDocumentCommand{\sup}{o g}{\IfNoValueTF{#2}{\oldsup\IfValueT{#1}{_{#1}}}{\,{\oldsup\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+\DeclareMathOperator*{\argmax}{argmax}
+
+\let\oldmin\min
+\RenewDocumentCommand{\min}{o g}{\IfNoValueTF{#2}{\oldmin\IfValueT{#1}{_{#1}}}{\,{\oldmin\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+\let\oldinf\inf
+\RenewDocumentCommand{\inf}{o g}{\IfNoValueTF{#2}{\oldinf\IfValueT{#1}{_{#1}}}{\,{\oldinf\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
+
+\DeclareMathOperator*{\argmin}{argmin}
+
+% CALCULUS
+\renewcommand{\d}[1]{\mathrm{d}#1}
+\NewDocumentCommand{\der}{o g g}{\frac{\d\IfValueT{#1}{^{#1}} #2}{\d #3\IfValueT{#1}{^{#1}}}}
+\NewDocumentCommand{\derx}{o g g}{\d\IfValueT{#1}{^{#1}} #2/\d #3\IfValueT{#1}{^{#1}}}
+\NewDocumentCommand{\pder}{o g g g}{\IfNoValueTF{#4}{\frac{\partial\IfValueT{#1}{^{#1}} #2}{\partial #3\IfValueT{#1}{^{#1}}}}{\left.\dfrac{\partial\IfValueT{#1}{^{#1}} #2}{\partial #3\IfValueT{#1}{^{#1}}}\right\vert_{#4}}}
+\NewDocumentCommand{\pderx}{o g g g}{\IfNoValueTF{#4}{\partial\IfValueT{#1}{^{#1}} #2/\partial #3\IfValueT{#1}{^{#1}}}{\left.\partial\IfValueT{#1}{^{#1}} #2/\partial #3\IfValueT{#1}{^{#1}}\right\vert_{#4}}}
+
+\newcommand{\usub}[1]{\tag*{\colorbox{orange!20}{$\begin{aligned}#1\end{aligned}$}}}
+\newcommand{\evalder}[2]{\left. #1 \right|_{#2}}
+\newcommand{\evalint}[3]{\left[#1\right]_{#2}^{#3}}
+
+% BRACKETS
+\newcommand{\bc}[1]{\left\lbrace #1 \right\rbrace} 
+\newcommand{\bp}[1]{\left( #1 \right)} 
+\newcommand{\bs}[1]{\left[ #1 \right]} 
+\newcommand{\ba}[1]{\langle #1 \rangle}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\of}[1]{{\left( #1 \right)}}
+
+% BLACKBOARD LETTERS
+\def\RR{\mathbb{R}}
+\def\NN{\mathbb{N}}
+\def\ZZ{\mathbb{Z}}
+\def\QQ{\mathbb{Q}}
+\def\CC{\mathbb{C}}
+\def\FF{\mathbb{F}}
+
+% CALIGRAPHIC LETTERS
+\def\Ac{\mathcal{A}}
+\def\Bc{\mathcal{B}}
+\def\Cc{\mathcal{C}}
+\def\Dc{\mathcal{D}}
+\def\Ec{\mathcal{E}}
+\def\Fc{\mathcal{F}}
+\def\Gc{\mathcal{G}}
+\def\Hc{\mathcal{H}}
+\def\Ic{\mathcal{I}}
+\def\Jc{\mathcal{J}}
+\def\Kc{\mathcal{K}}
+\def\Lc{\mathcal{L}}
+\def\Mc{\mathcal{M}}
+\def\Nc{\mathcal{N}}
+\def\Oc{\mathcal{O}}
+\def\Pc{\mathcal{P}}
+\def\Qc{\mathcal{Q}}
+\def\Rc{\mathcal{R}}
+\def\Sc{\mathcal{S}}
+\def\Tc{\mathcal{T}}
+\def\Uc{\mathcal{U}}
+\def\Vc{\mathcal{V}}
+\def\Wc{\mathcal{W}}
+\def\Xc{\mathcal{X}}
+\def\Yc{\mathcal{Y}}
+\def\Zc{\mathcal{Z}}
+
+% GREEK LETTERS
+\def\a{\alpha}
+\def\b{\beta}
+\def\c{\chi}
+\def\de{\delta}
+\def\D{\Delta}
+\def\e{\epsilon}
+\def\ve{\varepsilon}
+\def\f{\phi}
+\def\vf{\varphi}
+\def\F{\Phi}
+\def\g{\gamma}
+\def\G{\Gamma}
+\def\h{\eta}
+\def\i{\iota}
+\def\k{\kappa}
+\def\vk{\varkappa}
+\def\l{\lambda}
+\def\L{\Lambda}
+\def\m{\mu}
+\def\n{\nu}
+\def\o{\omega}
+\def\O{\Omega}
+\def\p{\psi}
+\def\r{\rho}
+\def\vr{\varrho}
+\def\s{\sigma}
+\def\vs{\varsigma}
+\def\S{\Sigma}
+\def\t{\theta}
+\def\vt{\vartheta}
+\def\T{\Theta}
+\def\u{\upsilon}
+\def\U{\Upsilon}
+\def\x{\xi}
+\def\X{\Xi}
+\def\z{\zeta}
+
+% ACCENTS
+\newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\oa}[1]{\overrightarrow{#1}}
+\newcommand{\ul}[1]{\underline{#1}}
+\newcommand{\wh}[1]{\widehat{#1}}
+\newcommand{\wt}[1]{\widetilde{#1}}
+
+% MISC
+\newcommand*{\tosf}[1]{\text{ ($#1$ s.f.)}}
+\newcommand*{\todp}[1]{\text{ ($#1$ d.p.)}}
+\newcommand*{\inv}[1]{#1^{-1}}
+\newcommand*{\ran}[1]{R_{#1}}
+\newcommand*{\dom}[1]{D_{#1}}
+\renewcommand{\lor}{\text{ or }}
+\renewcommand{\land}{\text{ and }}
