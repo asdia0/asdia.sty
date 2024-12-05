@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{Asdia}
+\ProvidesPackage{asdia}
 
 \usepackage{mdframed}
 \usepackage{chngcntr}
@@ -27,6 +27,7 @@
 \usepackage{dsfont}
 \usepackage[table]{xcolor}
 \usepackage{xparse}
+\usepackage{tabularx}
 
 \hypersetup{urlcolor=RubineRed,linkcolor=RoyalBlue,citecolor=ForestGreen}
 
@@ -54,7 +55,8 @@
 % Line with arrow midway
 \tikzset{->-/.style={decoration={
   markings,
-  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+  mark=at position #1 with {\arrow{>}}},postaction={decorate}}
+}
 
 % Two marks
 \def\MarkLt{4pt}
@@ -104,6 +106,8 @@
 \newcommand{\matr}[1]{\bm{#1}}
 \newcommand*{\cvecii}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 \newcommand*{\cveciii}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
+\newcommand*{\cveciix}[2]{\ba{#1, \, #2}}
+\newcommand*{\cveciiix}[3]{\ba{#1, \, #2, \, #3}}
 \def\dotp{\cdot}
 \def\crossp{\times}
 
@@ -123,8 +127,9 @@
 
 % COMPLEX NUMBERS
 \def\conj{^\ast}
-\RenewDocumentCommand{\Re}{g}{\IfNoValueTF{#1}{\operatorname{Re}}{\operatorname{Re}\of{#1}}}
-\RenewDocumentCommand{\Im}{g}{\IfNoValueTF{#1}{\operatorname{Im}}{\operatorname{Im}\of{#1}}}
+\def\i{\mkern1mu\mathrm{i}\mkern1mu}
+\RenewDocumentCommand{\Re}{g}{\IfNoValueTF{#1}{\operatorname{Re}}{{\operatorname{Re}}{\bp{#1}}}}
+\RenewDocumentCommand{\Im}{g}{\IfNoValueTF{#1}{\operatorname{Im}}{{\operatorname{Im}}{\bp{#1}}}}
 
 % STANDARD OPERATORS
 \DeclareMathOperator{\oldlcm}{lcm}
@@ -178,6 +183,7 @@
 \NewDocumentCommand{\Binom}{g g}{\mathrm{B}(#1, #2)}
 
 % REAL ANALYSIS
+\def\e{\mathrm{e}}
 \let\oldmax\max
 \RenewDocumentCommand{\max}{o g}{\IfNoValueTF{#2}{\oldmax\IfValueT{#1}{_{#1}}}{\,{\oldmax\IfValueT{#1}{_{#1}}}{\bc{#2}}}}
 
@@ -195,11 +201,13 @@
 \DeclareMathOperator*{\argmin}{argmin}
 
 % CALCULUS
-\renewcommand{\d}[1]{\mathrm{d}#1}
-\NewDocumentCommand{\der}{o g g}{\frac{\d\IfValueT{#1}{^{#1}} #2}{\d #3\IfValueT{#1}{^{#1}}}}
-\NewDocumentCommand{\derx}{o g g}{\d\IfValueT{#1}{^{#1}} #2/\d #3\IfValueT{#1}{^{#1}}}
+\renewcommand{\d}[1]{\,\mathrm{d}#1}
+\NewDocumentCommand{\der}{o g g}{\frac{\mathrm{d}\IfValueT{#1}{^{#1}} #2}{\mathrm{d} #3\IfValueT{#1}{^{#1}}}}
+\NewDocumentCommand{\derx}{o g g}{\mathrm{d}\IfValueT{#1}{^{#1}} #2/\mathrm{d} #3\IfValueT{#1}{^{#1}}}
 \NewDocumentCommand{\pder}{o g g g}{\IfNoValueTF{#4}{\frac{\partial\IfValueT{#1}{^{#1}} #2}{\partial #3\IfValueT{#1}{^{#1}}}}{\left.\dfrac{\partial\IfValueT{#1}{^{#1}} #2}{\partial #3\IfValueT{#1}{^{#1}}}\right\vert_{#4}}}
 \NewDocumentCommand{\pderx}{o g g g}{\IfNoValueTF{#4}{\partial\IfValueT{#1}{^{#1}} #2/\partial #3\IfValueT{#1}{^{#1}}}{\left.\partial\IfValueT{#1}{^{#1}} #2/\partial #3\IfValueT{#1}{^{#1}}\right\vert_{#4}}}
+
+\DeclareMathOperator{\IF}{I.F.}
 
 \newcommand{\usub}[1]{\tag*{\colorbox{orange!20}{$\begin{aligned}#1\end{aligned}$}}}
 \newcommand{\evalder}[2]{\left. #1 \right|_{#2}}
@@ -209,11 +217,11 @@
 \newcommand{\bc}[1]{\left\lbrace #1 \right\rbrace} 
 \newcommand{\bp}[1]{\left( #1 \right)} 
 \newcommand{\bs}[1]{\left[ #1 \right]} 
-\newcommand{\ba}[1]{\langle #1 \rangle}
-\newcommand{\abs}[1]{\lvert #1 \rvert}
-\newcommand{\norm}[1]{\lVert #1 \rVert}
-\newcommand{\floor}[1]{\lfloor #1 \rfloor}
-\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\newcommand{\ba}[1]{\left\langle #1 \right\rangle}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
 \newcommand{\of}[1]{{\left( #1 \right)}}
 
 % BLACKBOARD LETTERS
@@ -258,7 +266,7 @@
 \def\c{\chi}
 \def\de{\delta}
 \def\D{\Delta}
-\def\e{\epsilon}
+\def\ep{\epsilon}
 \def\ve{\varepsilon}
 \def\f{\phi}
 \def\vf{\varphi}
@@ -266,7 +274,7 @@
 \def\g{\gamma}
 \def\G{\Gamma}
 \def\h{\eta}
-\def\i{\iota}
+\def\io{\iota}
 \def\k{\kappa}
 \def\vk{\varkappa}
 \def\l{\lambda}
@@ -305,3 +313,7 @@
 \newcommand*{\dom}[1]{D_{#1}}
 \renewcommand{\lor}{\text{ or }}
 \renewcommand{\land}{\text{ and }}
+\NewDocumentCommand{\units}{o}{\text{ units}\IfValueT{#1}{^{#1}}}
+\DeclareMathOperator{\area}{Area}
+\DeclareMathOperator{\volume}{Volume}
+\DeclareMathOperator{\length}{Length}
