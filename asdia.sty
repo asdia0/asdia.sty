@@ -22,12 +22,13 @@
 \usepackage{etoolbox}
 \usepackage{systeme}
 \usepackage{bm}
-\usepackage{booktabs}
 \usepackage{caption}
+\usepackage{booktabs}
 \usepackage{dsfont}
 \usepackage[table]{xcolor}
 \usepackage{xparse}
 \usepackage{tabularx}
+\usepackage{multirow}
 
 \hypersetup{urlcolor=RubineRed,linkcolor=RoyalBlue,citecolor=ForestGreen}
 
@@ -45,7 +46,7 @@
 \pgfplotsset{compat=1.18}
 \usepgfplotslibrary{polar, fillbetween}
 
-\usetikzlibrary{arrows, intersections, angles, quotes, calc, decorations.markings, patterns}
+\usetikzlibrary{arrows, intersections, angles, quotes, calc, decorations.markings, patterns, shapes}
 
 \colorlet{plotRed}{red!50}
 \colorlet{plotBlue}{blue!50}
@@ -81,23 +82,6 @@
 }
 
 % ENVIRONMENTS
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}
-\newtheorem{corollary}{Corollary}
-\newtheorem{proposition}{Proposition}
-\newtheorem{lemma}{Lemma}
-\newtheorem*{theorem*}{Theorem}
-\newtheorem*{corollary*}{Corollary}
-\newtheorem*{proposition*}{Proposition}
-\newtheorem*{lemma*}{Lemma}
-
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}
-\newtheorem*{definition*}{Definition}
-
 \NewDocumentCommand{\case}{g o}{\textit{Case #1}\IfNoValueTF{#2}{.}{: \textit{#2}.}}
 \NewDocumentCommand{\subcase}{g o}{\textit{Subcase #1}\IfNoValueTF{#2}{.}{: \textit{#2}.}}
 
@@ -213,6 +197,21 @@
 \newcommand{\evalder}[2]{\left. #1 \right|_{#2}}
 \newcommand{\evalint}[3]{\left[#1\right]_{#2}^{#3}}
 
+% MISC
+\newcommand*{\tosf}[1]{\text{ ($#1$ s.f.)}}
+\newcommand*{\todp}[1]{\text{ ($#1$ d.p.)}}
+\newcommand*{\inv}[1]{#1^{-1}}
+\newcommand*{\ran}[1]{R_{#1}}
+\newcommand*{\dom}[1]{D_{#1}}
+\renewcommand{\lor}{\text{ or }}
+\renewcommand{\land}{\text{ and }}
+\NewDocumentCommand{\units}{o}{\text{ units}\IfValueT{#1}{^{#1}}}
+\DeclareMathOperator{\area}{Area}
+\DeclareMathOperator{\volume}{Volume}
+\DeclareMathOperator{\length}{Length}
+\newcommand{\vocab}[1]{\textbf{\color{ForestGreen!90!black}\sffamily #1}}
+\let\SS\S
+
 % BRACKETS
 \newcommand{\bc}[1]{\left\lbrace #1 \right\rbrace} 
 \newcommand{\bp}[1]{\left( #1 \right)} 
@@ -264,8 +263,8 @@
 \def\a{\alpha}
 \def\b{\beta}
 \def\c{\chi}
-\def\de{\delta}
 \def\D{\Delta}
+\def\de{\delta}
 \def\ep{\epsilon}
 \def\ve{\varepsilon}
 \def\f{\phi}
@@ -304,16 +303,3 @@
 \newcommand{\ul}[1]{\underline{#1}}
 \newcommand{\wh}[1]{\widehat{#1}}
 \newcommand{\wt}[1]{\widetilde{#1}}
-
-% MISC
-\newcommand*{\tosf}[1]{\text{ ($#1$ s.f.)}}
-\newcommand*{\todp}[1]{\text{ ($#1$ d.p.)}}
-\newcommand*{\inv}[1]{#1^{-1}}
-\newcommand*{\ran}[1]{R_{#1}}
-\newcommand*{\dom}[1]{D_{#1}}
-\renewcommand{\lor}{\text{ or }}
-\renewcommand{\land}{\text{ and }}
-\NewDocumentCommand{\units}{o}{\text{ units}\IfValueT{#1}{^{#1}}}
-\DeclareMathOperator{\area}{Area}
-\DeclareMathOperator{\volume}{Volume}
-\DeclareMathOperator{\length}{Length}
