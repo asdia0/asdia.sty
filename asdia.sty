@@ -149,6 +149,9 @@
 \let\oldarctan\arctan
 \RenewDocumentCommand{\arctan}{o g}{\IfNoValueTF{#2}{\oldarctan}{\,{\oldarctan\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
 
+\DeclareMathOperator{\oldarcsec}{arcsec}
+\NewDocumentCommand{\arcsec}{o g}{\IfNoValueTF{#2}{\oldarcsec}{\,{\oldarcsec\IfValueT{#1}{^{#1}}}{\bp{#2}}}}
+
 \let\oldln\ln
 \RenewDocumentCommand{\ln}{g}{\IfNoValueTF{#1}{\oldln}{\,{\oldln}{\bp{#1}}}}
 
@@ -164,7 +167,9 @@
 \NewDocumentCommand{\Var}{o g}{\IfNoValueTF{#2}{\operatorname{Var}\IfValueT{#1}{_{#1}}}{\,{\operatorname{Var}\IfValueT{#1}{_{#1}}}{\bp{#2}}}}
 \NewDocumentCommand{\E}{o g}{\IfNoValueTF{#2}{\operatorname{\mathrm{E}}\IfValueT{#1}{_{#1}}}{{\operatorname{\mathrm{E}}\IfValueT{#1}{_{#1}}}{\bp{#2}}}}
 \RenewDocumentCommand{\P}{o g g}{\IfNoValueTF{#2}{\operatorname{\mathrm{P}}\IfValueT{#1}{_{#1}}}{{\operatorname{\mathrm{P}}\IfValueT{#1}{_{#1}}}{\bp{#2\IfValueT{#3}{\mid #3}}}}}
-\NewDocumentCommand{\Binom}{g g}{\mathrm{B}(#1, #2)}
+\NewDocumentCommand{\Binom}{g g}{{\mathrm{B}\bp{#1, #2}}}
+\NewDocumentCommand{\Po}{g}{{\mathrm{Po}\bp{#1}}}
+\NewDocumentCommand{\Geo}{g}{{\mathrm{Geo}\bp{#1}}}
 
 % REAL ANALYSIS
 \def\e{\mathrm{e}}
