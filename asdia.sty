@@ -87,7 +87,8 @@
 
 % LINEAR ALGEBRA
 \renewcommand{\vec}[1]{\mathbf{#1}}
-\newcommand{\matr}[1]{\bm{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\trp}{^{\mathsf{T}}}
 \newcommand*{\cvecii}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
 \newcommand*{\cveciii}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
 \newcommand*{\cveciix}[2]{\ba{#1, \, #2}}
@@ -208,12 +209,16 @@
 \newcommand*{\inv}[1]{#1^{-1}}
 \newcommand*{\ran}[1]{R_{#1}}
 \newcommand*{\dom}[1]{D_{#1}}
+\DeclareMathOperator{\oldimg}{Im}
+\NewDocumentCommand{\Img}{o}{\IfNoValueTF{#1}{\oldimg}{\,{\oldimg{\bp{#1}}}}}
+\DeclareMathOperator{\Ker}{Ker}
 \renewcommand{\lor}{\text{ or }}
 \renewcommand{\land}{\text{ and }}
 \NewDocumentCommand{\units}{o}{\text{ units}\IfValueT{#1}{^{#1}}}
 \DeclareMathOperator{\area}{Area}
 \DeclareMathOperator{\volume}{Volume}
 \DeclareMathOperator{\length}{Length}
+\newcommand*{\ow}{\text{otherwise}}
 \newcommand{\vocab}[1]{\textbf{\color{ForestGreen!90!black}\sffamily #1}}
 \let\SS\S
 
