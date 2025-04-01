@@ -1,0 +1,33 @@
+\usepackage{asdia}
+
+\usepackage[a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{multicol}
+
+\def\asdiasty{\texttt{asdia.sty}}
+\newcommand{\pkg}[2]{\href{#2}{\texttt{#1}}}
+\newcommand{\colorname}[1]{{\color{#1}\texttt{#1}}}
+\def\produces{$\longrightarrow$}
+\newcommand{\framecmd}[1]{(\texttt{\textbackslash #1})}
+\newcommand{\bph}{\,\cdot\,} % bracket placeholder
+
+\title{\asdiasty{} Documentation}
+\subtitle{\url{https://asdia.dev/projects/asdia.sty}}
+\author{Eytan Chong}
+\date{\today}
+
+\hypersetup{pdfauthor={Eytan Chong},pdfsubject={asdia.sty Documentation},pdftitle={asdia.sty Documentation},pdfkeywords={asdia.sty Documentation}}
+
+\raggedbottom
+
+\usepackage[skins]{tcolorbox}
+
+\newtcolorbox{myframe}[2][]{%
+    enhanced,colback=white,colframe=black,coltitle=black,
+    sharp corners,boxrule=0.4pt,
+    fonttitle=\slshape,
+    attach boxed title to top left={yshift=-0.45\baselineskip-0.4pt,xshift=2mm},
+    boxed title style={tile,size=minimal,left=0.5mm,right=0.5mm,
+    colback=white,before upper=\strut},
+    title=#2,#1,
+    top=10pt,
+}

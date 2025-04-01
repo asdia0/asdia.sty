@@ -1,0 +1,90 @@
+\section{Packages}
+
+\asdiasty{} automatically loads the following packages and libraries:
+
+\begin{multicols}{3}
+    \begin{itemize}
+        \item \pkg{adjustbox}{https://ctan.org/pkg/adjustbox}
+        \item \pkg{amsmath}{https://ctan.org/pkg/amsmath}
+        \item \pkg{amssymb}{https://ctan.org/pkg/amsfonts}
+        \item \pkg{amsthm}{https://ctan.org/pkg/amsthm}
+        \item \pkg{bm}{https://ctan.org/pkg/bm}
+        \item \pkg{booktabs}{https://ctan.org/pkg/booktabs}
+        \item \pkg{caption}{https://ctan.org/pkg/caption}
+        \item \pkg{chngcntr}{https://ctan.org/pkg/chngcntr}
+        \item \pkg{dsfont}{https://ctan.org/pkg/doublestroke}
+        \item \pkg{empheq}{https://ctan.org/pkg/empheq}
+        \item \pkg{enumitem}{https://ctan.org/pkg/enumitem}
+        \item \pkg{etoolbox}{https://ctan.org/pkg/etoolbox}
+        \item \pkg{fancybox}{https://ctan.org/pkg/fancybox}
+        \item \pkg{float}{https://ctan.org/pkg/float}
+        \item \pkg{hyperref}{https://ctan.org/pkg/hyperref}
+        \item \pkg{mathtools}{https://ctan.org/pkg/mathtools}
+        \item \pkg{mdframed}{https://ctan.org/pkg/mdframed}
+        \item \pkg{multirow}{https://ctan.org/pkg/multirow}
+        \item \pkg{pgfplots}{https://ctan.org/pkg/pgfplots}
+        \item \pkg{systeme}{https://ctan.org/pkg/systeme}
+        \item \pkg{tabularx}{https://ctan.org/pkg/tabularx}
+        \item \pkg{tasks}{https://ctan.org/pkg/tasks}
+        \item \pkg{thmtools}{https://ctan.org/pkg/thmtools}
+        \item \pkg{tikz}{https://ctan.org/pkg/tikz}
+        \item \pkg{tkz-euclide}{https://ctan.org/pkg/tkz-euclide}
+        \item \pkg{xcolor}{https://ctan.org/pkg/xcolor}
+        \item \pkg{xparse}{https://ctan.org/pkg/xparse}
+    \end{itemize}
+\end{multicols}
+
+% TODO: add option to load only essential packages
+
+\subsection{Configurations}
+
+\subsubsection{Hyperref}
+External links are configured to be \colorname{RubineRed}, internal links are \colorname{RoyalBlue} and citations are \colorname{ForestGreen}.
+
+\subsubsection{Tasks}
+Tasks are enumerated by lower-case alphabets:
+
+\begin{tasks}(4)
+    \task Hello
+    \task World
+    \task Foo
+    \task Bar
+\end{tasks}
+
+\subsubsection{Xcolor}
+Three custom colours are introduced:
+
+\begin{multicols}{3}
+    \begin{itemize}
+        \item \colorname{plotRed}
+        \item \colorname{plotBlue}
+        \item \colorname{plotGreen}
+    \end{itemize}
+\end{multicols}
+
+\subsubsection{Tikz and Pgfplots}
+\asdiasty{} automatically loads the following \texttt{tikz} libraries:
+
+\begin{multicols}{3}
+    \begin{itemize}
+        \item \pkg{angles}{https://tikz.dev/library-angle}
+        \item \pkg{arrows}{https://tikz.dev/library-arrows}
+        \item \pkg{calc}{https://tikz.dev/library-calc}
+        \item \pkg{decorations.markings}{https://tikz.dev/library-decorations\#pgf.decorations.markings}
+        \item \pkg{intersections}{https://tikz.dev/tikz-coordinates\#pgf.intersections}
+        \item \pkg{patterns}{https://tikz.dev/library-patterns}
+        \item \pkg{quotes}{https://tikz.dev/tikz-shapes\#pgf.quotes}
+        \item \pkg{shapes}{https://tikz.dev/library-shapes}
+    \end{itemize}
+\end{multicols}
+
+The following \texttt{pgfplot} libraries are also loaded: 
+
+\begin{multicols}{3}
+    \begin{itemize}
+        \item \pkg{polar}{https://pgfplots.sourceforge.net/pgfplots.pdf\#section.5.10}
+        \item \pkg{fillbetween}{https://pgfplots.sourceforge.net/pgfplots.pdf\#section.5.7}
+    \end{itemize}
+\end{multicols}
+
+% TODO: Add examples for the two tikz templates

@@ -1,0 +1,64 @@
+\section{Brackets and Accents}
+
+\subsection{Brackets}
+
+The following table lists all brackets provided by \asdiasty:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Description} & \textbf{Command} & \textbf{Example} \\ \hline \hline
+        Parentheses & \verb|\bp| & $\bp{\bph}$ \\ \hline
+        Square Brackets & \verb|\bs| & $\bs{\bph}$ \\ \hline
+        Braces & \verb|\bc| & $\bc{\bph}$ \\ \hline
+        Angle Brackets & \verb|\ba| & $\ba{\bph}$ \\ \hline
+        Floor Function & \verb|\floor| & $\floor{\bph}$ \\ \hline
+        Ceiling Function & \verb|\ceil| & $\ceil{\bph}$ \\ \hline
+        Modulus & \verb|\abs| & $\abs{\bph}$ \\ \hline
+        Norm & \verb|\norm| & $\norm{\bph}$ \\ \hline
+    \end{tabular}
+\end{table}
+
+Note that they all have the same syntax:
+
+\begin{myframe}{Syntax}
+    \verb|\foo{<argument>}|
+    \begin{itemize}
+        \item \verb|{<argument>}| (mandatory): The object to surround with brackets.
+    \end{itemize}
+\end{myframe}
+
+Note also that these brackets scale automatically. This is particularly useful in display mode:
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\bp{\frac{1}{2}}$| \produces{} Inline: $\bp{\frac{1}{2}}$, Display: $\displaystyle\bp{\frac{1}{2}}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Accents}
+
+The following table lists all accents provided by \asdiasty:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Description} & \textbf{Command} & \textbf{Example} \\ \hline \hline
+        Over-line & \verb|\ol| & $\ol{x}$ \\ \hline
+        Over-arrow & \verb|\oa| & $\oa{x}$ \\ \hline
+        Under-line & \verb|\ul| & $\ul{x}$ \\ \hline
+        Wide hat & \verb|\wh| & $\wh{x}$ \\ \hline
+        Wide tilde & \verb|\wt| & $\wt{x}$ \\ \hline
+    \end{tabular}
+\end{table}
+
+Like the brackets, these accents share the following syntax:
+
+\begin{myframe}{Syntax}
+    \verb|\foo{<argument>}|
+    \begin{itemize}
+        \item \verb|{<argument>}| (mandatory): The object to accent.
+    \end{itemize}
+\end{myframe}

@@ -1,0 +1,224 @@
+\section{Miscellaneous}
+
+\subsection{Euler's Number}
+
+Euler's number is provided by \verb|\e|.
+
+\begin{myframe}{Example \framecmd{e}}
+    \begin{itemize}
+        \item \verb|$\e$| \produces{} $\e$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Extrema}
+
+The following commands are implemented using \verb|\DefCmdBc|:
+
+\begin{multicols}{3}
+    \begin{itemize}
+        \item \verb|\max|
+        \item \verb|\min|
+        \item \verb|\sup|
+        \item \verb|\inf|
+        \item \verb|\argmax|
+        \item \verb|\argmin|
+    \end{itemize}
+\end{multicols}
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\max{1, 2}$| \produces{} $\max{1, 2}$.
+        \item \verb|$\argmax \sin x$| \produces{} $\argmax \sin x$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Less Common Functions}
+
+The following functions are implemented using \verb|\DefCmd|.
+
+\begin{multicols}{3}
+    \begin{itemize}
+        \item \verb|\sgn|
+        \item \verb|\bigO|
+        \item \verb|\smallO|
+    \end{itemize}
+\end{multicols}
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\sgn{1}$| \produces{} $\sgn{1}$.
+        \item \verb|$\bigO{x}$| \produces{} $\bigO{x}$.
+        \item \verb|$\smallO{x}$| \produces{} $\smallO{x}$.
+    \end{itemize}
+\end{myframe}
+
+Another less common function is the indicator function, which is provided by \verb|\ind|. It is implemented by \verb|\DefCmdBc|.
+
+\begin{myframe}{Example \framecmd{ind}}
+    \begin{itemize}
+        \item \verb|$\ind{0<x<1}$| \produces{} $\ind{0<x<1}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Geometry}
+
+\subsubsection{Degrees}
+
+The degree symbol is provided by \verb|\deg|.
+
+\begin{myframe}{Example \framecmd{deg}}
+    \begin{itemize}
+        \item \verb|$180\deg$| \produces{} $180\deg$.
+    \end{itemize}
+\end{myframe}
+
+\subsubsection{Measures}
+
+The following commands are implemented by \verb|\DefCmd|:
+
+\begin{multicols}{3}
+    \begin{itemize}
+        \item \verb|\length|
+        \item \verb|\area|
+        \item \verb|\volume|
+    \end{itemize}
+\end{multicols}
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\area \triangle ABC$| \produces{} $\area \triangle ABC$.
+        \item \verb|$\volume{ABCD}$| \produces{} $\volume{ABCD}$.
+    \end{itemize}
+\end{myframe}
+
+Units are provided by \verb|\units|.
+
+\begin{myframe}{Syntax \framecmd{units}}
+    \verb|\units[<dimension>]|
+    \begin{itemize}
+        \item \verb|[<dimension>]| (optional): The dimension of ``units''.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Examples \framecmd{units}}
+    \begin{itemize}
+        \item \verb|$10 \units$| \produces{} $10 \units$.
+        \item \verb|$10 \units[2]$| \produces{} $10 \units[2]$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Text in Math Mode}
+
+\subsubsection{Logical Connectives}
+
+\verb|\tand|, \verb|\tor| and \verb|\ow| are used to print ``and'', ``or'' and ``otherwise'' in display equations. Spaces are automatically added before and after the words.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$P \tand Q$| \produces{} $P \tand Q$. 
+    \end{itemize}
+\end{myframe}
+
+\subsubsection{Precision}
+
+\verb|\tosf| and \verb|\todp| are used to indicate the precision of a value (significant figures and decimal places). Both have the following syntax:
+
+\begin{myframe}{Syntax}
+    \verb|\foo{<precision>}|
+    \begin{itemize}
+        \item \verb|{<precision>}| (mandatory): The number of significant figures/decimal places the value is rounded off to.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$1.23 \tosf{3}$| \produces{} $1.23 \tosf{3}$.
+        \item \verb|$1.23 \todp{2}$| \produces{} $1.23 \todp{2}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Cases and Subcases}
+
+\verb|\case| and \verb|\subcase| are used to label cases and subcases respectively. The two commands share the following syntax:
+
+\begin{myframe}{Syntax}
+    \verb|\foo{<label>}[<statement>]|
+    \begin{itemize}
+        \item \verb|{<label>}| (mandatory): The case's number.
+        \item \verb|[<statement>]| (optional): The statement that case is considering.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|\case{1}[$x = 1$]| \produces{} \case{1}[$x = 1$]
+        \item \verb|\case{2}| \produces{} \case{2}
+    \end{itemize}
+\end{myframe}
+
+Note that a period is automatically added after the case/subcase command.
+
+\subsection{Section Sign}
+
+The section sign (\SS) is provided by \verb|\SS|. Note that this command works in both text and math mode.
+
+\subsection{Letters}
+
+\subsubsection{Greek Letters}
+
+\asdiasty{} provides shortcuts for most Greek letters: only omicron, pi ($\pi$) and tau ($\tau$) do not have their own shortcuts.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|cc|cc|cc|}
+        \hline
+        \textbf{Letter} & \textbf{Command} & \textbf{Letter} & \textbf{Command} & \textbf{Letter} & \textbf{Command} \\ \hline \hline
+        $\a$ & \verb|\a| & $\b$ & \verb|\b| & $\g$ & \verb|\g| \\ \hline
+        $\G$ & \verb|\G| & $\de$ & \verb|\de| & $\D$ & \verb|\D| \\ \hline
+        $\ep$ & \verb|\ep| & $\ve$ & \verb|\ve| & $\z$ & \verb|\z| \\ \hline
+        $\h$ & \verb|\h| & $\t$ & \verb|\t| & $\vt$ & \verb|\vt| \\ \hline
+        $\T$ & \verb|\T| & $\io$ & \verb|\io| & $\k$ & \verb|\k| \\ \hline
+        $\vk$ & \verb|\vk| & $\l$ & \verb|\l| & $\L$ & \verb|\L| \\ \hline
+        $\m$ & \verb|\m| & $\n$ & \verb|\n| & $\x$ & \verb|\x| \\ \hline
+        $\X$ & \verb|\X| & $\r$ & \verb|\r| & $\vr$ & \verb|\vr| \\ \hline
+        $\s$ & \verb|\s| & $\vs$ & \verb|\vs| & $\S$ & \verb|\S| \\ \hline
+        $\u$ & \verb|\u| & $\U$ & \verb|\U| & $\f$ & \verb|\f| \\ \hline
+        $\vf$ & \verb|\vf| & $\F$ & \verb|\F| & $\c$ & \verb|\c| \\ \hline
+        $\p$ & \verb|\p| & $\o$ & \verb|\o| & $\O$ & \verb|\O| \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Blackboard Letters}
+
+\asdiasty{} provides shortcuts for a select few blackboard letters:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|cc|cc|cc|}
+        \hline
+        \textbf{Letter} & \textbf{Command} & \textbf{Letter} & \textbf{Command} & \textbf{Letter} & \textbf{Command} \\ \hline \hline
+        $\CC$ & \verb|\CC| & $\RR$ & \verb|\RR| & $\ZZ$ & \verb|\ZZ| \\ \hline
+        $\QQ$ & \verb|\QQ| & $\NN$ & \verb|\NN| & $\FF$ & \verb|\FF| \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Calligraphic Letters}
+
+\asdiasty{} provides shortcuts for all calligraphic letters:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|cc|cc|cc|}
+        \hline
+        \textbf{Letter} & \textbf{Command} & \textbf{Letter} & \textbf{Command} & \textbf{Letter} & \textbf{Command} \\ \hline \hline
+        $\Ac$ & \verb|\Ac| & $\Bc$ & \verb|\Bc| & $\Cc$ & \verb|\Cc| \\ \hline
+        $\Dc$ & \verb|\Dc| & $\Ec$ & \verb|\Ec| & $\Fc$ & \verb|\Fc| \\ \hline
+        $\Gc$ & \verb|\Gc| & $\Hc$ & \verb|\Hc| & $\Ic$ & \verb|\Ic| \\ \hline
+        $\Jc$ & \verb|\Jc| & $\Kc$ & \verb|\Kc| & $\Lc$ & \verb|\Lc| \\ \hline
+        $\Mc$ & \verb|\Mc| & $\Nc$ & \verb|\Nc| & $\Oc$ & \verb|\Oc| \\ \hline
+        $\Pc$ & \verb|\Pc| & $\Qc$ & \verb|\Qc| & $\Rc$ & \verb|\Rc| \\ \hline
+        $\Sc$ & \verb|\Sc| & $\Tc$ & \verb|\Tc| & $\Uc$ & \verb|\Uc| \\ \hline
+        $\Vc$ & \verb|\Vc| & $\Wc$ & \verb|\Wc| & $\Xc$ & \verb|\Xc| \\ \hline
+        $\Yc$ & \verb|\Yc| & $\Zc$ & \verb|\Zc| &\cellcolor{black} & \cellcolor{black} \\ \hline
+    \end{tabular}
+\end{table}

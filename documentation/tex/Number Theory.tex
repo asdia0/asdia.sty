@@ -1,0 +1,30 @@
+\section{Number Theory}
+
+\subsection{LCM and GCD}
+
+The lowest common multiple (LCM) and greatest common divisor (GCD) of a set of numbers is provided by \verb|\lcm| and \verb|\gcd| respectively. Both commands are implemented using \verb|\DefCmd|.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\lcm{4, 5}$| \produces{} $\lcm{4, 5}$.
+        \item \verb|$\gcd{6, 7}$| \produces{} $\gcd{6, 7}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Legendre Symbol}
+
+The \href{https://mathworld.wolfram.com/LegendreSymbol.html}{Legendre symbol} is provided by \verb|\legendre|.
+
+\begin{myframe}{Syntax}
+    \verb|\legendre{<a>}{<p>}|
+    \begin{itemize}
+        \item \verb|{<a>}| (mandatory): An integer.
+        \item \verb|{<p>}| (mandatory): An odd prime.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example}
+    \begin{itemize}
+        \item \verb|$\legendre{4}{7}$| \produces{} $\legendre{4}{7}$.
+    \end{itemize}
+\end{myframe}

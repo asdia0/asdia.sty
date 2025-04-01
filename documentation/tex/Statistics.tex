@@ -1,0 +1,166 @@
+\section{Statistics}
+
+\subsection{Permutations and Combinations}
+
+The permutation and combination commands are provided by \verb|\perm| and \verb|\comb| respectively. The two functions share the following syntax:
+
+\begin{myframe}{Syntax}
+    \verb|\foo{<n>}{<r>}|
+    \begin{itemize}
+        \item \verb|{<n>}| (mandatory): Total number of objects.
+        \item \verb|{<r>}| (mandatory): Number objects to permute/choose.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\perm{10}{5}$| \produces{} $\perm{10}{5}$.
+        \item \verb|$\comb{10}{5}$| \produces{} $\comb{10}{5}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Probability, Expectation and Variance}
+
+The probability, expectation and variance functions are provided by \verb|\P|, \verb|\E| and \verb|\Var| respectively. They are implemented using \verb|\DefCmdCond|.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\P{X = 1}$| \produces{} $\P{X = 1}$.
+        \item \verb|$\E{X = 1}{Y = 1}$| \produces{} $\E{X = 1}{Y = 1}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Distributions}
+
+\subsubsection{Binomial Distribution}
+
+The binomial distribution is provided by \verb|\Binom|.
+
+\begin{myframe}{Syntax \framecmd{Binom}}
+    \verb|\Binom{<n>}{<p>}|
+    \begin{itemize}
+        \item \verb|{<n>}| (mandatory): Number of trials.
+        \item \verb|{<p>}| (mandatory): Probability of success.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{Binom}}
+    \begin{itemize}
+        \item \verb|$\Binom{10}{0.5}$| \produces{} $\Binom{10}{0.5}$.
+    \end{itemize}
+\end{myframe}
+
+\subsubsection{Poisson Distribution}
+
+The Poisson distribution is provided by \verb|\Po|.
+
+\begin{myframe}{Syntax \framecmd{Po}}
+    \verb|\Po{<lambda>}|
+    \begin{itemize}
+        \item \verb|{<lambda>}| (mandatory): The mean rate of the Poisson process.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{Po}}
+    \begin{itemize}
+        \item \verb|$\Po{2}$| \produces{} $\Po{2}$.
+    \end{itemize}
+\end{myframe}
+
+\subsubsection{Geometric Distribution}
+
+The geometric distribution is provided by \verb|\Geo|.
+
+\begin{myframe}{Syntax \framecmd{Geo}}
+    \verb|\Geo{<p>}|
+    \begin{itemize}
+        \item \verb|{<p>}| (mandatory): Probability of success.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{Geo}}
+    \begin{itemize}
+        \item \verb|$\Geo{0.5}$| \produces{} $\Geo{0.5}$.
+    \end{itemize}
+\end{myframe}
+
+\subsubsection{Uniform Distribution}
+
+The uniform distribution is provided by \verb|\Uni|.
+
+\begin{myframe}{Syntax \framecmd{Uni}}
+    \verb|\Uni{<a>}{<b>}|
+    \begin{itemize}
+        \item \verb|{<a>}| (mandatory): The lower bound.
+        \item \verb|{<b>}| (mandatory): The upper bound.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{Uni}}
+    \begin{itemize}
+        \item \verb|$\Uni{0}{1}$| \produces{} $\Uni{0}{1}$.
+    \end{itemize}
+\end{myframe}
+
+\subsubsection{Exponential Distribution}
+
+The exponential distribution is provided by \verb|\Exp|.
+
+\begin{myframe}{Syntax \framecmd{Exp}}
+    \verb|\Exp{<lambda>}|
+    \begin{itemize}
+        \item \verb|{<lambda>}| (mandatory): The mean rate of the Poisson process.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{Exp}}
+    \begin{itemize}
+        \item \verb|$\Exp{2}$| \produces{} $\Exp{2}$.
+    \end{itemize}
+\end{myframe}
+
+\subsubsection{Normal Distribution}
+
+The normal distribution is provided by \verb|\Normal|.
+
+\begin{myframe}{Syntax \framecmd{Normal}}
+    \verb|\Normal{<mean>}{<variance>}|
+    \begin{itemize}
+        \item \verb|{<mean>}| (mandatory): The mean.
+        \item \verb|{<variance>}| (mandatory): The variance.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{Normal}}
+    \begin{itemize}
+        \item \verb|$\Normal{0}{1}$| \produces{} $\Normal{0}{1}$.
+    \end{itemize}
+\end{myframe}
+
+\subsubsection{Student T Distribution}
+
+The Student T distribution is provided by \verb|\StudentT|.
+
+\begin{myframe}{Syntax \framecmd{StudentT}}
+    \verb|\StudentT{<df>}|
+    \begin{itemize}
+        \item \verb|{<df>}| (mandatory): Degrees of freedom.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{StudentT}}
+    \begin{itemize}
+        \item \verb|$\StudentT{10}$| \produces{} $\StudentT{10}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Hypothesis Testing}
+
+The null hypothesis and alternative hypothesis symbols are provided by \verb|\nullhyp| and \verb|\althyp| respectively.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\nullhyp$| \produces{} $\nullhyp$.
+        \item \verb|$\althyp$| \produces{} $\althyp$.
+    \end{itemize}
+\end{myframe}

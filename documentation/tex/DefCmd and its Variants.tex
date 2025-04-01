@@ -1,0 +1,91 @@
+\section{\texttt{\textbackslash DefCmd} and its Variants}
+
+\subsection{\texttt{\textbackslash DefCmd}}
+
+One frequently used command is \verb|\DefCmd|, which defines a mathematical operator with parentheses that scale automatically.
+
+\begin{myframe}{Syntax \framecmd{DefCmd}}
+    \verb|\DefCmd{<macro>}{<operator>}|
+    \begin{itemize}
+        \item \verb|{<macro>}| (mandatory): The macro to define.
+        \item \verb|{<operator>}| (mandatory): The name of the mathematical operator.
+    \end{itemize}
+\end{myframe}
+
+To declare a new operator called ``foo'', we can invoke \verb|\DefCmd{\foo}{foo}|. This creates the command \verb|\foo|, which has the following syntax:
+
+\begin{myframe}{Syntax \framecmd{foo}}
+    \verb|\foo{<argument>}|
+    \begin{itemize}
+        \item \verb|{<argument>}| (mandatory): The argument of foo.
+    \end{itemize}
+\end{myframe}
+
+For instance, we can now call \verb|\foo{x}|. Note that if the argument is delimited with braces, it will be surrounded by parentheses in the output, as demonstrated below: 
+
+\begin{myframe}{Examples \framecmd{foo}}
+    \begin{itemize}
+        \item \verb|$\foo{x}$| \produces{} $\mathrm{foo}{\bp{x}}$.
+        \item \verb|$\foo x$| \produces{} $\mathrm{foo}\,x$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{\texttt{\textbackslash DefCmdBc}}
+
+A minor variation of \verb|\DefCmd| is \verb|\DefCmdBc|. The only difference is that the brackets are now curly (\verb|\bc| instead of \verb|\bp|). The syntax is identical to that of \verb|\DefCmd|.
+
+\subsection{\texttt{\textbackslash DefCmdPow}}
+
+\verb|\DefCmdPow| is yet another variant of \verb|\DefCmd|. As its name suggests, it allows the user to write powers (exponents) after the operator. 
+
+The syntax of \verb|\DefCmdPow| is completely identical to that of \verb|\DefCmd|: to declare a new operator, we invoke \verb|\DefCmdPow{\foo}{foo}|.
+
+The resulting command, \verb|\foo|, has the following syntax:
+
+\begin{myframe}{Syntax \framecmd{foo}}
+    \verb|\foo[<power>]{<argument>}|
+    \begin{itemize}
+        \item \verb|[<power>]| (optional): The power of foo.
+        \item \verb|{<argument>}| (mandatory): The argument of foo.
+    \end{itemize}
+\end{myframe}
+
+Some example outputs are as follows:
+
+\begin{myframe}{Examples \framecmd{foo}}
+    \begin{itemize}
+        \item \verb|$\foo[2]{x}$| \produces{} $\mathrm{foo}^2(x)$.
+        \item \verb|$\foo[2] x$| \produces{} $\mathrm{foo}^2 x$.
+    \end{itemize}
+\end{myframe}
+
+If no exponent is passed, the output is completely identical to that of \verb|\DefCmd|.
+
+\subsection{\texttt{\textbackslash DefCmdCond}}
+
+The last variation of \verb|\DefCmd| is \verb|\DefCmdCond|. It is primarily used for probabilities, expectations and variations in statistics. There are two main differences between \verb|\DefCmdCond| and \verb|\DefCmd|:
+\begin{itemize}
+    \item The brackets used are now square (\verb|\bp| is replaced by \verb|\bs|).
+    \item There is an additional (optional) argument for \verb|\foo| for conditionals.
+\end{itemize}
+
+The syntax is, once again, completely the same as \verb|\DefCmd|: to define a new operator, we invoke \verb|\DefCmdCond{\foo}{foo}|.
+
+The syntax for \verb|\foo| is as follows:
+
+\begin{myframe}{Syntax \framecmd{foo}}
+    \verb|\foo{<argument>}{<condition>}|
+    \begin{itemize}
+        \item \verb|{<argument>}| (mandatory): The argument of foo.
+        \item \verb|{<condition>}| (optional): The event to condition upon.
+    \end{itemize}
+\end{myframe}
+
+Some example outputs are as follows:
+
+\begin{myframe}{Examples \framecmd{foo}}
+    \begin{itemize}
+        \item \verb|$\foo{x}{y}$| \produces{} $\mathrm{foo}[x \mid y]$.
+        \item \verb|$\foo{x}$| \produces{} $\mathrm{foo}[x]$.
+    \end{itemize}
+\end{myframe}

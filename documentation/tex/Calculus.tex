@@ -1,0 +1,93 @@
+\section{Calculus}
+
+\subsection{Differential}
+
+The differential symbol is provided by \verb|\d|.
+
+\begin{myframe}{Syntax \framecmd{d}}
+    \verb|\d{<x>}|
+    \begin{itemize}
+        \item \verb|{<x>}| (mandatory): The variable to take the differential of.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{d}}
+    \begin{itemize}
+        \item \verb|$\d{x}$| \produces{} $\d{x}$.
+    \end{itemize}
+\end{myframe}
+
+Most of the time, the delimiters are not needed.
+
+\subsection{Derivatives}
+
+The total and partial derivatives are provided by \verb|\der| and \verb|\pder|. Both commands share the following syntax:
+
+\begin{myframe}{Syntax}
+    \verb|\foo{<y>}{<x>}|
+    \begin{itemize}
+        \item \verb|{<y>}| (mandatory): The function to differentiate.
+        \item \verb|{<x>}| (mandatory): The variable we are differentiating with respect to.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\der{y}{x}$| \produces{} $\der{y}{x}$.
+        \item \verb|$\pder{z}{t}$| \produces{} $\pder{z}{t}$.
+    \end{itemize}
+\end{myframe}
+
+Their inline equivalents are provided by \verb|\derx| and \verb|\pderx| respectively, with exactly the same syntax.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\derx{y}{x}$| \produces{} $\derx{y}{x}$.
+        \item \verb|$\pderx{z}{t}$| \produces{} $\pderx{z}{t}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Evaluations}
+
+The command \verb|\evalder| evaluates a derivative at a particular point.
+
+\begin{myframe}{Syntax \framecmd{evalder}}
+    \verb|\evalder{<derivative>}{<point>}|
+    \begin{itemize}
+        \item \verb|{<derivative>}| (mandatory): The function/derivative to evaluate.
+        \item \verb|{<point>}| (mandatory): The point to evaluate at.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{evalder}}
+    \begin{itemize}
+        \item \verb|$\evalder{\der{y}{x}}{x = 2}$| \produces{} $\displaystyle\evalder{\der{y}{x}}{x = 2}$.
+    \end{itemize}
+\end{myframe}
+
+Similarly, the command \verb|\evalint| evaluates a primitive over an interval.
+
+\begin{myframe}{Syntax \framecmd{evalint}}
+    \verb|\evalint{<primitive>}{<lower bound>}{<upper bound>}|
+    \begin{itemize}
+        \item \verb|{<primitive>}| (mandatory): The primitive to evaluate.
+        \item \verb|{<lower bound>}| (mandatory): The lower bound to evaluate the primitive at.
+        \item \verb|{<upper bound>}| (mandatory): The upper bound to evaluate the primitive at.
+    \end{itemize}
+\end{myframe}
+
+\begin{myframe}{Example \framecmd{evalint}}
+    \begin{itemize}
+        \item \verb|$\evalint{x}{x = 0}{1}$| \produces{} $\displaystyle\evalint{x}{x = 0}{1}$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Integrating Factor}
+
+The integrating factor symbol is provided by \verb|\IF|.
+
+\begin{myframe}{Example \framecmd{IF}}
+    \begin{itemize}
+        \item \verb|$\IF$| \produces{} $\IF$.
+    \end{itemize}
+\end{myframe}

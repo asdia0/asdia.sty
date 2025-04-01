@@ -1,0 +1,90 @@
+\section{Linear Algebra}
+
+\subsection{Boldface Vectors and Matrices}
+
+Boldface vectors and matrices are provided by \verb|\vec| and \verb|\mat| respectively.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\vec{v}$| \produces{} $\vec{v}$.
+        \item \verb|$\mat{M}$| \produces{} $\mat{M}$.
+    \end{itemize}
+\end{myframe}
+
+Most of the time, the delimiters can be omitted.
+
+\subsection{Column Vectors}
+
+2D, 3D and 4D column vectors are provided by \verb|\cvecii|, \verb|\cveciii| and \verb|\cveciv| respectively. Obviously, they take in the same number of parameters as dimensions.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\cvecii{1}{0}$| \produces{} $\displaystyle\cvecii{1}{0}$.
+        \item \verb|$\cveciv{a}{b}{c}{d}$| \produces{} $\displaystyle\cveciv{a}{b}{c}{d}$.
+    \end{itemize}
+\end{myframe}
+
+Their inline counterparts are provided by \verb|\cveciix|, \verb|\cveciiix| and \verb|\cvecivx| respectively.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\cveciix{1}{0}$| \produces{} $\cveciix{1}{0}$.
+        \item \verb|$\cvecivx{a}{b}{c}{d}$| \produces{} $\cvecivx{a}{b}{c}{d}$.
+    \end{itemize}
+\end{myframe}
+
+% TODO: combine both into one command.
+
+\subsection{Transpose}
+
+The transpose of a vector/matrix is provided by \verb|\trp|. It does \emph{not} take in any argument; it is a decorative command.
+
+\begin{myframe}{Example}
+    \begin{itemize}
+        \item \verb|$\vec v \trp$| \produces{} $\vec v \trp$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Dot and Cross Product}
+
+The dot and cross product symbols are provided by \verb|\dotp| and \verb|\crossp| respectively.
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\vec u \dotp \vec v$| \produces{} $\vec u \dotp \vec v$.
+        \item \verb|$\vec u \crossp \vec v$| \produces{} $\vec u \crossp \vec v$.
+    \end{itemize}
+\end{myframe}
+
+\subsection{Matrix Operations}
+
+The following matrix operations are implemented using \verb|\DefCmd|.
+
+\begin{multicols}{3}
+    \begin{itemize}
+        \item \verb|\tr|
+        \item \verb|\Ker|
+        \item \verb|\Range|
+        \item \verb|\det|
+        \item \verb|\Nullity|
+        \item \verb|\Rank|
+        \item \verb|\Dim|
+        \item \verb|\Col|
+    \end{itemize}
+\end{multicols}
+
+\begin{myframe}{Examples}
+    \begin{itemize}
+        \item \verb|$\tr{\mat A}$| \produces{} $\tr{\mat A}$.
+        \item \verb|$\Dim \mat A$| \produces{} $\Dim \mat A$.
+    \end{itemize}
+\end{myframe}
+
+The odd-one-out is the \verb|\Span| operator, which is implemented using \verb|\DefCmdBc|.
+
+\begin{myframe}{Examples \framecmd{Span}}
+    \begin{itemize}
+        \item \verb|$\Span{\vec u, \vec v}$| \produces{} $\Span{\vec u, \vec v}$.
+        \item \verb|$\Span S$| \produces{} $\Span S$.
+    \end{itemize}
+\end{myframe}
