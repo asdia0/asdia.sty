@@ -3,7 +3,7 @@
 
 \usepackage{mdframed}
 \usepackage{chngcntr}
-\usepackage{enumitem}
+%\usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -17,7 +17,7 @@
 \usepackage{tikz}
 \usepackage{tkz-euclide}
 \usepackage{pgfplots}
-\usepackage[colorlinks=true,pdfusetitle]{hyperref}
+\usepackage{hyperref}
 \usepackage{tasks}[newest]
 \usepackage{etoolbox}
 \usepackage{systeme}
@@ -30,7 +30,7 @@
 \usepackage{multirow}
 
 % Package config: hyperref
-\hypersetup{urlcolor=RubineRed,linkcolor=RoyalBlue,citecolor=ForestGreen}
+\hypersetup{colorlinks=true,urlcolor=RubineRed,linkcolor=RoyalBlue,citecolor=ForestGreen}
 
 % Package config: Tasks
 \settasks{
@@ -149,6 +149,7 @@
 \DefCmd{\Range}{range}
 \DefCmd{\Rank}{rank}
 \DefCmd{\Col}{col}
+\DefCmd{\Row}{row}
 \DefCmd{\Dim}{dim}
 
 % Number Theory
@@ -236,40 +237,40 @@
 \newcommand{\of}[1]{{\left( #1 \right)}}
 
 % Blackboard Letters
-\def\RR{\mathbb{R}}
-\def\NN{\mathbb{N}}
-\def\ZZ{\mathbb{Z}}
-\def\QQ{\mathbb{Q}}
-\def\CC{\mathbb{C}}
-\def\FF{\mathbb{F}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\FF}{\mathbb{F}}
 
 % Caligraphic Letters
-\def\Ac{\mathcal{A}}
-\def\Bc{\mathcal{B}}
-\def\Cc{\mathcal{C}}
-\def\Dc{\mathcal{D}}
-\def\Ec{\mathcal{E}}
-\def\Fc{\mathcal{F}}
-\def\Gc{\mathcal{G}}
-\def\Hc{\mathcal{H}}
-\def\Ic{\mathcal{I}}
-\def\Jc{\mathcal{J}}
-\def\Kc{\mathcal{K}}
-\def\Lc{\mathcal{L}}
-\def\Mc{\mathcal{M}}
-\def\Nc{\mathcal{N}}
-\def\Oc{\mathcal{O}}
-\def\Pc{\mathcal{P}}
-\def\Qc{\mathcal{Q}}
-\def\Rc{\mathcal{R}}
-\def\Sc{\mathcal{S}}
-\def\Tc{\mathcal{T}}
-\def\Uc{\mathcal{U}}
-\def\Vc{\mathcal{V}}
-\def\Wc{\mathcal{W}}
-\def\Xc{\mathcal{X}}
-\def\Yc{\mathcal{Y}}
-\def\Zc{\mathcal{Z}}
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Bc}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dc}{\mathcal{D}}
+\newcommand{\Ec}{\mathcal{E}}
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Gc}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Ic}{\mathcal{I}}
+\newcommand{\Jc}{\mathcal{J}}
+\newcommand{\Kc}{\mathcal{K}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Mc}{\mathcal{M}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Qc}{\mathcal{Q}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Tc}{\mathcal{T}}
+\newcommand{\Uc}{\mathcal{U}}
+\newcommand{\Vc}{\mathcal{V}}
+\newcommand{\Wc}{\mathcal{W}}
+\newcommand{\Xc}{\mathcal{X}}
+\newcommand{\Yc}{\mathcal{Y}}
+\newcommand{\Zc}{\mathcal{Z}}
 
 % Greek Letters
 \def\a{\alpha}
