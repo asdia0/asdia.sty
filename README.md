@@ -3,7 +3,7 @@ A LaTeX style file for homework and assignments. It is inspired by Pascal Michai
 
 ## Documentation
 
-Documentation is available [here](https://asdia.dev/projects/asdia.sty/docs/Documentation.pdf).
+Documentation is available [here](https://asdia.dev/projects/stydoc.pdf).
 
 ## Installation
 
